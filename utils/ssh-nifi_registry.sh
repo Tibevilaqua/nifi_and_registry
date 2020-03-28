@@ -1,0 +1,1 @@
+docker exec -it nifi_and_registry_nifi_registry_1 /bin/bash

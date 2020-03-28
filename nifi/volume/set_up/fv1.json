@@ -1,0 +1,366 @@
+{
+  "snapshotMetadata" : {
+    "version" : 1,
+    "timestamp" : 1582004876897,
+    "author" : "anonymous",
+    "comments" : "aca-pipeline-gcp-nifi-panorama"
+  },
+  "flowContents" : {
+    "identifier" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e",
+    "name" : "aca-pipeline-gcp-nifi-panorama",
+    "comments" : "",
+    "position" : {
+      "x" : 405.0,
+      "y" : 143.0
+    },
+    "processGroups" : [ ],
+    "remoteProcessGroups" : [ ],
+    "processors" : [ {
+      "identifier" : "157d47f2-ad94-39e0-b354-e22d8f041050",
+      "name" : "PublishGCPubSub",
+      "comments" : "",
+      "position" : {
+        "x" : 456.0,
+        "y" : 344.0
+      },
+      "bundle" : {
+        "group" : "org.apache.nifi",
+        "artifact" : "nifi-gcp-nar",
+        "version" : "1.11.1"
+      },
+      "style" : { },
+      "type" : "org.apache.nifi.processors.gcp.pubsub.PublishGCPubSub",
+      "properties" : {
+        "GCP Credentials Provider Service" : "c07a3278-fa10-3f29-8333-bbed3f49f023",
+        "gcp-pubsub-publish-batch-size" : "50",
+        "gcp-pubsub-topic" : "hello_topic",
+        "gcp-project-id" : "gcp-poc-256203"
+      },
+      "propertyDescriptors" : {
+        "GCP Credentials Provider Service" : {
+          "name" : "GCP Credentials Provider Service",
+          "displayName" : "GCP Credentials Provider Service",
+          "identifiesControllerService" : true,
+          "sensitive" : false
+        },
+        "gcp-pubsub-publish-batch-size" : {
+          "name" : "gcp-pubsub-publish-batch-size",
+          "displayName" : "Batch Size",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "gcp-pubsub-topic" : {
+          "name" : "gcp-pubsub-topic",
+          "displayName" : "Topic Name",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "gcp-project-id" : {
+          "name" : "gcp-project-id",
+          "displayName" : "Project ID",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        }
+      },
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "executionNode" : "ALL",
+      "penaltyDuration" : "30 sec",
+      "yieldDuration" : "1 sec",
+      "bulletinLevel" : "WARN",
+      "runDurationMillis" : 0,
+      "concurrentlySchedulableTaskCount" : 1,
+      "autoTerminatedRelationships" : [ "success" ],
+      "scheduledState" : "ENABLED",
+      "componentType" : "PROCESSOR",
+      "groupIdentifier" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e"
+    }, {
+      "identifier" : "0d415f87-0ff5-38c7-b250-d72db3a1f8fd",
+      "name" : "ListenTCP",
+      "comments" : "",
+      "position" : {
+        "x" : 463.0,
+        "y" : 126.0
+      },
+      "bundle" : {
+        "group" : "org.apache.nifi",
+        "artifact" : "nifi-standard-nar",
+        "version" : "1.11.1"
+      },
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ListenTCP",
+      "properties" : {
+        "Max Size of Socket Buffer" : "1 MB",
+        "Max Number of TCP Connections" : "2",
+        "Local Network Interface" : "eth0",
+        "Max Batch Size" : "1",
+        "Port" : "6514",
+        "Receive Buffer Size" : "65507 B",
+        "Character Set" : "UTF-8",
+        "Client Auth" : "REQUIRED",
+        "Max Size of Message Queue" : "10000",
+        "Message Delimiter" : "\\n"
+      },
+      "propertyDescriptors" : {
+        "SSL Context Service" : {
+          "name" : "SSL Context Service",
+          "displayName" : "SSL Context Service",
+          "identifiesControllerService" : true,
+          "sensitive" : false
+        },
+        "Max Size of Socket Buffer" : {
+          "name" : "Max Size of Socket Buffer",
+          "displayName" : "Max Size of Socket Buffer",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Max Number of TCP Connections" : {
+          "name" : "Max Number of TCP Connections",
+          "displayName" : "Max Number of TCP Connections",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Local Network Interface" : {
+          "name" : "Local Network Interface",
+          "displayName" : "Local Network Interface",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Max Batch Size" : {
+          "name" : "Max Batch Size",
+          "displayName" : "Max Batch Size",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Port" : {
+          "name" : "Port",
+          "displayName" : "Port",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Receive Buffer Size" : {
+          "name" : "Receive Buffer Size",
+          "displayName" : "Receive Buffer Size",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "name" : "Character Set",
+          "displayName" : "Character Set",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Client Auth" : {
+          "name" : "Client Auth",
+          "displayName" : "Client Auth",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Max Size of Message Queue" : {
+          "name" : "Max Size of Message Queue",
+          "displayName" : "Max Size of Message Queue",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "Message Delimiter" : {
+          "name" : "Message Delimiter",
+          "displayName" : "Batching Message Delimiter",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        }
+      },
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "executionNode" : "ALL",
+      "penaltyDuration" : "30 sec",
+      "yieldDuration" : "1 sec",
+      "bulletinLevel" : "WARN",
+      "runDurationMillis" : 0,
+      "concurrentlySchedulableTaskCount" : 1,
+      "autoTerminatedRelationships" : [ ],
+      "scheduledState" : "ENABLED",
+      "componentType" : "PROCESSOR",
+      "groupIdentifier" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e"
+    }, {
+      "identifier" : "5baa0b4d-5c72-39ab-889b-432d05d9cc88",
+      "name" : "LogMessage",
+      "comments" : "",
+      "position" : {
+        "x" : 456.0,
+        "y" : 568.0
+      },
+      "bundle" : {
+        "group" : "org.apache.nifi",
+        "artifact" : "nifi-standard-nar",
+        "version" : "1.11.1"
+      },
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
+      "properties" : {
+        "log-message" : "Message not sent to pub/sub",
+        "log-level" : "info",
+        "log-prefix" : "Error"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "name" : "log-message",
+          "displayName" : "Log message",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "log-level" : {
+          "name" : "log-level",
+          "displayName" : "Log Level",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "name" : "log-prefix",
+          "displayName" : "Log prefix",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        }
+      },
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "executionNode" : "ALL",
+      "penaltyDuration" : "30 sec",
+      "yieldDuration" : "1 sec",
+      "bulletinLevel" : "WARN",
+      "runDurationMillis" : 0,
+      "concurrentlySchedulableTaskCount" : 1,
+      "autoTerminatedRelationships" : [ "success" ],
+      "scheduledState" : "ENABLED",
+      "componentType" : "PROCESSOR",
+      "groupIdentifier" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e"
+    } ],
+    "inputPorts" : [ ],
+    "outputPorts" : [ ],
+    "connections" : [ {
+      "identifier" : "53293148-61c5-3e21-acd6-5fa9eb78e46b",
+      "name" : "",
+      "source" : {
+        "id" : "0d415f87-0ff5-38c7-b250-d72db3a1f8fd",
+        "type" : "PROCESSOR",
+        "groupId" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e",
+        "name" : "ListenTCP",
+        "comments" : ""
+      },
+      "destination" : {
+        "id" : "157d47f2-ad94-39e0-b354-e22d8f041050",
+        "type" : "PROCESSOR",
+        "groupId" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e",
+        "name" : "PublishGCPubSub",
+        "comments" : ""
+      },
+      "labelIndex" : 1,
+      "zIndex" : 0,
+      "selectedRelationships" : [ "success" ],
+      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "1 GB",
+      "flowFileExpiration" : "0 sec",
+      "prioritizers" : [ ],
+      "bends" : [ ],
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "partitioningAttribute" : "",
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "componentType" : "CONNECTION",
+      "groupIdentifier" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e"
+    }, {
+      "identifier" : "34677c5b-5fd6-3cf8-853b-a86201e68aab",
+      "name" : "",
+      "source" : {
+        "id" : "157d47f2-ad94-39e0-b354-e22d8f041050",
+        "type" : "PROCESSOR",
+        "groupId" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e",
+        "name" : "PublishGCPubSub",
+        "comments" : ""
+      },
+      "destination" : {
+        "id" : "5baa0b4d-5c72-39ab-889b-432d05d9cc88",
+        "type" : "PROCESSOR",
+        "groupId" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e",
+        "name" : "LogMessage",
+        "comments" : ""
+      },
+      "labelIndex" : 1,
+      "zIndex" : 0,
+      "selectedRelationships" : [ "failure", "retry" ],
+      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "1 GB",
+      "flowFileExpiration" : "0 sec",
+      "prioritizers" : [ ],
+      "bends" : [ ],
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "partitioningAttribute" : "",
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "componentType" : "CONNECTION",
+      "groupIdentifier" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e"
+    } ],
+    "labels" : [ ],
+    "funnels" : [ ],
+    "controllerServices" : [ {
+      "identifier" : "c07a3278-fa10-3f29-8333-bbed3f49f023",
+      "name" : "GCPCredentialsControllerService-Panorama",
+      "comments" : "",
+      "type" : "org.apache.nifi.processors.gcp.credentials.service.GCPCredentialsControllerService",
+      "bundle" : {
+        "group" : "org.apache.nifi",
+        "artifact" : "nifi-gcp-nar",
+        "version" : "1.11.1"
+      },
+      "controllerServiceApis" : [ {
+        "type" : "org.apache.nifi.gcp.credentials.service.GCPCredentialsService",
+        "bundle" : {
+          "group" : "org.apache.nifi",
+          "artifact" : "nifi-gcp-services-api-nar",
+          "version" : "1.11.1"
+        }
+      } ],
+      "properties" : {
+        "compute-engine-credentials" : "false",
+        "application-default-credentials" : "false",
+        "service-account-json-file" : "/opt/test/gcp-poc-256203-ecfe5e053d80.json"
+      },
+      "propertyDescriptors" : {
+        "proxy-configuration-service" : {
+          "name" : "proxy-configuration-service",
+          "displayName" : "Proxy Configuration Service",
+          "identifiesControllerService" : true,
+          "sensitive" : false
+        },
+        "compute-engine-credentials" : {
+          "name" : "compute-engine-credentials",
+          "displayName" : "Use Compute Engine Credentials",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "application-default-credentials" : {
+          "name" : "application-default-credentials",
+          "displayName" : "Use Application Default Credentials",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "service-account-json-file" : {
+          "name" : "service-account-json-file",
+          "displayName" : "Service Account JSON File",
+          "identifiesControllerService" : false,
+          "sensitive" : false
+        },
+        "service-account-json" : {
+          "name" : "service-account-json",
+          "displayName" : "Service Account JSON",
+          "identifiesControllerService" : false,
+          "sensitive" : true
+        }
+      },
+      "componentType" : "CONTROLLER_SERVICE",
+      "groupIdentifier" : "95f0c5c6-1d05-3377-b3be-a6eb343f9f9e"
+    } ],
+    "variables" : { },
+    "componentType" : "PROCESS_GROUP"
+  },
+  "externalControllerServices" : { },
+  "parameterContexts" : { },
+  "flowEncodingVersion" : "1.0"
+}

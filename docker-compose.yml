@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  nifi_registry:
+    build: nifi_registry
+    ports:
+      - 18080:18080
+  nifi:
+    image: gcr.io/gcp-poc-256203/nifi:v13
+    build: nifi
+    volumes:
+      - ./opt:/opt/test
+      - ./nifi/volume:/opt/volumes
+    links:
+     - "nifi_registry:nifi_registry"
+    ports:
+      - 8080:8080
+      - 6514:6514
+volumes:
+  volume:
